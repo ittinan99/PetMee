@@ -18,7 +18,7 @@ public class fish : PetStats
     public  float heallavel_C = 100;
 
 
-    public Text HU, HA, CL, HE,Name;
+    public Text HU, HA, CL, HE,Name = null;
     
 
     private void Start()
@@ -75,12 +75,14 @@ public class fish : PetStats
         happiness(happinessLavel);
         cleam(cleanLavel);
         heal(heallavel);
-
-        HU.text = "Hungry = " + hungrylavel;
-        HA.text = "Happiness = " + happinessLavel;
-        CL.text = "Clean = " + cleanLavel;
-        HE.text = "Heal = " + heallavel;
-        Name.text = "Name = " + name;
+        if(HU.text != null)
+        {
+            HU.text = "Hungry = " + hungrylavel;
+            HA.text = "Happiness = " + happinessLavel;
+            CL.text = "Clean = " + cleanLavel;
+            HE.text = "Heal = " + heallavel;
+            Name.text = "Name = " + name;
+        }
     }
 
 

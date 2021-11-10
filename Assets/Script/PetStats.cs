@@ -15,7 +15,14 @@ public class PetStats : MonoBehaviour
     protected float cleanLavel;
     protected float heallavel;
     
-
+    public float hungryLvl
+    {
+        get { return hungrylavel; }
+    }
+    public float healLvl
+    {
+        get { return hungrylavel; }
+    }
     protected void hungry(float hp)
     {
         if (hp <= 50 && hp >= 26)

@@ -1,0 +1,8 @@
+tree("Root")
+	repeat
+		sequence
+			CheckedHungry()
+			CheckedHealthy()
+			Patrol()
+			Wait(10.0)
+			

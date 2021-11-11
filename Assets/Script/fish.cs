@@ -69,6 +69,7 @@ public class fish : PetStats
         Seve();
     }
 
+    //Text
     void UpdateStats()
     {
         hungry(hungrylavel);

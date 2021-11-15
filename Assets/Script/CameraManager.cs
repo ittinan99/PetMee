@@ -21,23 +21,24 @@ public class CameraManager : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0)){
             Vector3 mosPos = Input.mousePosition;
-            mosPos.z = 0;
             Ray ray = Camera.main.ScreenPointToRay(mosPos);
 
 
             Debug.Log(mosPos);
             Debug.Log("Click");
-            if(Physics.Raycast(ray,out hit,1000,layerPet)){
+            if(Physics.Raycast(ray,out hit)&&hit.transform.gameObject.CompareTag("Pet")){
+                Debug.DrawRay(ray.origin, ray.direction *100, Color.red);
                 if(normalCam.gameObject.activeInHierarchy == true){
                     normalCam.gameObject.SetActive(false);
                     lookAtCam.gameObject.SetActive(true);
                     lookAtCam.Follow = hit.collider.transform;
                     lookAtCam.LookAt = hit.collider.transform;
+                    hit.transform.gameObject.GetComponent<PetBehavior>().IsCamLook = true;
                     Debug.Log("normal to lookat");
                 }else{
                     normalCam.gameObject.SetActive(true);
                     lookAtCam.gameObject.SetActive(false);
-                    
+                    hit.transform.gameObject.GetComponent<PetBehavior>().IsCamLook = false;
                     Debug.Log("ookat to normal");
                 }
             }

@@ -1,8 +1,17 @@
 tree("Root")
-	repeat
-		sequence
+	Fallback
+		tree("Move")
+		tree("Cam")
+tree("Move")
+	sequence
 			CheckedHungry()
-			CheckedHealthy()
+			CheckedHealthy()	
 			Patrol()
-			Wait(10.0)
+			repeat 5
+				IsReachedDestination()
+			Wait(2.0)
+		
+tree("Cam")
+	IsCamLookAt()
+			
 			
